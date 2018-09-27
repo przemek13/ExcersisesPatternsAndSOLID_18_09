@@ -10,24 +10,24 @@ public class AdvancedRemote extends Remote {
     public void togglePower() {
         if (device.isEnabled()) {
             device.disable();
-            System.out.println(device.getDeviceName() + " disabled.");
+            System.out.println(device.getDeviceName() + " disabled");
         }
         else {
             device.enable();
-            System.out.println(device.getDeviceName() + " enabled.");
+            System.out.println(device.getDeviceName() + " enabled");
     }
 }
 
     @Override
     protected void volumeDown(int percent) {
         device.setVolume(-percent);
-        System.out.println(device.getDeviceName() + " volume was turned down to: " + device.getVolume() + "%.");
+        System.out.println(device.getDeviceName() + " volume was turned down to: " + device.getVolume() + "%");
     }
 
     @Override
     protected void volumeUp(int percent) {
         device.setVolume(percent);
-        System.out.println(device.getDeviceName() + " volume was turned up to: " + device.getVolume() + "%.");
+        System.out.println(device.getDeviceName() + " volume was turned up to: " + device.getVolume() + "%");
     }
 
     @Override

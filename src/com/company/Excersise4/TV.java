@@ -1,8 +1,7 @@
 package com.company.Excersise4;
 
-public class Radio extends Device {
-
-    Radio(String deviceName) {
+public class TV extends Device {
+    TV(String deviceName) {
         super(deviceName);
     }
 
@@ -44,11 +43,11 @@ public class Radio extends Device {
 
     @Override
     public int setChannel(int channel) {
-        if (getChannel()+channel >=0 && getChannel()+channel <=10) {
+        if (getChannel()+channel >=0 && getChannel()+channel <=999) {
             return this.channel = getChannel() + channel;
         }
         else if (getChannel()+channel<0) {
-            return this.channel = 10;
+            return this.channel = 999;
         }
         else
             return this.channel = 0;
