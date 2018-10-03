@@ -8,26 +8,23 @@ public class AdvancedRemote extends Remote {
 
     @Override
     public void togglePower() {
-        if (device.isEnabled()) {
-            device.disable();
-            System.out.println(device.getDeviceName() + " disabled");
-        }
-        else {
+        if (device.enabled == false) {
             device.enable();
-            System.out.println(device.getDeviceName() + " enabled");
+            device.isEnabled();
+        } else {
+            device.disable();
+            device.isEnabled();
+        }
     }
-}
 
     @Override
     protected void volumeDown(int percent) {
-        device.setVolume(-percent);
-        System.out.println(device.getDeviceName() + " volume was turned down to: " + device.getVolume() + "%");
+        System.out.println(device.getDeviceName() + " volume was turned down to: " + device.setVolume(-percent) + "%");
     }
 
     @Override
     protected void volumeUp(int percent) {
-        device.setVolume(percent);
-        System.out.println(device.getDeviceName() + " volume was turned up to: " + device.getVolume() + "%");
+        System.out.println(device.getDeviceName() + " volume was turned up to: " + device.setVolume(percent) + "%");
     }
 
     @Override
@@ -42,8 +39,7 @@ public class AdvancedRemote extends Remote {
         System.out.println("Current channel is " + device.getChannel());
     }
 
-    protected void  mute() {
-        device.setVolume(-100);
-        System.out.println("Current volume is " + device.getVolume());
+    protected void mute() {
+        System.out.println("Current volume is " + device.setVolume(-100) + "%");
     }
 }

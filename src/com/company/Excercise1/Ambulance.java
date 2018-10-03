@@ -2,8 +2,8 @@ package com.company.Excercise1;
 
 public abstract class Ambulance {
     protected AmbulanceStatus ambulanceStatus;
-    protected Dispatcher dispatcher;
-    protected int id;
+    protected final Dispatcher dispatcher;
+    protected final int id;
 
     public Ambulance(Dispatcher dispatcher, int id) {
         this.dispatcher = dispatcher;
@@ -11,6 +11,7 @@ public abstract class Ambulance {
     }
 
     public abstract void startAction(String notificationAddress);
+
     public abstract void finishAction();
 
     @Override

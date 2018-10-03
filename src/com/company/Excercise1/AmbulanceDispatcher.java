@@ -4,29 +4,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AmbulanceDispatcher implements Dispatcher {
-    private List<Ambulance> ambulances;
+    private final List<Ambulance> ambulances;
 
-    public AmbulanceDispatcher(){
+    public AmbulanceDispatcher() {
         this.ambulances = new ArrayList<>();
     }
 
     @Override
-    public void takeEmergencyCall(String callersName, String notificationAddress, String symptoms, Priority priority)
-    {
-        if (priority==Priority.HIGH) {
-        System.out.println("Emergency call from : " + callersName + " on the address: " + notificationAddress + ", with symptoms: " + symptoms + ", accepted.");
-        sendAmbulance(notificationAddress);
-        System.out.println();}
-        else {
-            System.out.println("Emergency call from : " + callersName + " on the address: " + notificationAddress + ", with symptoms: " + symptoms + ", refused. Priority: " + priority);
-            System.out.println();
+    public void takeEmergencyCall(String callersName, String notificationAddress, String symptoms, Priority priority) {
+        System.out.print("Emergency call from : " + callersName + " on the address: " + notificationAddress + ", with symptoms: " + symptoms);
+        if (priority == Priority.HIGH) {
+            System.out.println(", accepted.");
+            sendAmbulance(notificationAddress);
+        } else {
+            System.out.println(", refused. Priority: " + priority);
         }
+        System.out.println();
     }
 
     @Override
     public void sendAmbulance(String notificationAddress) {
         for (Ambulance ambulance : ambulances) {
-            if (ambulance.ambulanceStatus == AmbulanceStatus.FREE){
+            if (ambulance.ambulanceStatus == AmbulanceStatus.FREE) {
                 System.out.print(ambulance.ambulanceStatus + " " + ambulance + " starts action on: " + notificationAddress + ".");
                 ambulance.startAction(notificationAddress);
                 return;

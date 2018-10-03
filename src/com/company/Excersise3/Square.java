@@ -6,9 +6,8 @@ public class Square extends Shape {
     }
 
     @Override
-    public void addColor() {
+    public void showShape() {
         color.addColor();
         System.out.println(" square.");
-
     }
 }

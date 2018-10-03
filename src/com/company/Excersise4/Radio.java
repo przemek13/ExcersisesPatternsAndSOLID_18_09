@@ -2,23 +2,23 @@ package com.company.Excersise4;
 
 public class Radio extends Device {
 
-    Radio(String deviceName) {
-        super(deviceName);
+    public Radio(String deviceName, int volume, int channel, boolean enabled) {
+        super(deviceName, volume, channel, enabled);
     }
 
     @Override
-    public boolean isEnabled() {
-        return false;
+    public void isEnabled() {
+        enableCheck();
     }
 
     @Override
     public boolean enable() {
-        return this.isEnabled()==true;
+        return enabled = true;
     }
 
     @Override
     public boolean disable() {
-        return this.isEnabled()==false;
+        return enabled = false;
     }
 
     @Override
@@ -28,13 +28,7 @@ public class Radio extends Device {
 
     @Override
     public int setVolume(int percent) {
-        if (getVolume() + percent <= 100 && getVolume() + percent >= 0) {
-            return volume = getVolume() + percent;
-        } else if (getVolume() + percent <= 0) {
-            return volume = 0;
-        } else {
-            return volume = 100;
-        }
+        return volumeCheck(100, 0, percent);
     }
 
     @Override
@@ -44,13 +38,6 @@ public class Radio extends Device {
 
     @Override
     public int setChannel(int channel) {
-        if (getChannel()+channel >=0 && getChannel()+channel <=10) {
-            return this.channel = getChannel() + channel;
-        }
-        else if (getChannel()+channel<0) {
-            return this.channel = 10;
-        }
-        else
-            return this.channel = 0;
+        return channelCheck(10, 0, channel);
     }
 }

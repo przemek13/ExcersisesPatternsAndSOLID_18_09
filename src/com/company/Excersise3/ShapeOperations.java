@@ -6,9 +6,9 @@ public class ShapeOperations {
         Shape square = new Square(new RedColor());
         Shape circle2 = new Circle(new BlueColor());
         Shape square2 = new Square(new BlueColor());
-        circle.addColor();
-        square.addColor();
-        circle2.addColor();
-        square2.addColor();
+        circle.showShape();
+        square.showShape();
+        circle2.showShape();
+        square2.showShape();
     }
 }

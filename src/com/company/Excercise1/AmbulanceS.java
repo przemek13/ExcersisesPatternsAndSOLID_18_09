@@ -6,7 +6,7 @@ public class AmbulanceS extends Ambulance {
         ambulanceStatus = AmbulanceStatus.FREE;
     }
 
-    public AmbulanceS (Dispatcher dispatcher, int ambulanceID, AmbulanceStatus ambulanceStatus) {
+    public AmbulanceS(Dispatcher dispatcher, int ambulanceID, AmbulanceStatus ambulanceStatus) {
         super(dispatcher, ambulanceID);
         this.ambulanceStatus = ambulanceStatus;
     }
